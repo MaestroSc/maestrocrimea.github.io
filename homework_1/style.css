@@ -1,0 +1,17 @@
+#main
+{
+	margin: auto;
+	padding: 20px 48px 10px 46px;
+	width: 700px;
+	border: 1px solid gray;
+}
+
+tr:first-child
+{
+	font-weight: bold;
+}
+
+.indent
+{
+	margin-left: 42px;
+}
