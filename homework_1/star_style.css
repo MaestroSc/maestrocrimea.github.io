@@ -1,0 +1,33 @@
+body{
+  text-align: center;
+}
+
+#field_rate
+{
+   background: linear-gradient(45deg, #5B6AE1, #4B71BE);
+   display: inline-block;
+   border-radius: 8px;
+   padding: 5px 10px 5px 10px;
+}
+
+.r_button{ /* Прячем стандартные радиокнопки*/
+  display: none;
+}
+
+label{ /*Стиль не нажатой звезды*/
+  color: #CBE0F1;
+  float:right;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#field_rate *:hover ~ label, label:hover{ /*Заливка звёзд при наведении*/
+  color: #FFFA05;
+  cursor: pointer;
+}
+
+
+#field_rate > input:checked ~ label{ /*Заливка звёзд при нажатии*/
+  color: yellow;
+  color: #FFFA05;
+}
