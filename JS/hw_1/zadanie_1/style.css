@@ -1,0 +1,15 @@
+.main{
+  width:450px;
+  margin:auto;
+}
+
+.intb{
+  float:right;
+}
+
+.out_text{
+  margin-top: 20px;
+  width:100%;
+  height:200px;
+  resize: none;
+}
