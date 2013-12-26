@@ -1,4 +1,4 @@
-var fibo = function ()
+var fibo = function () // Функция вывода элемента последовательности
 {
 	var fb_ne = document.getElementById('num_element').value;
 	if (fb_ne < 1)
@@ -13,7 +13,7 @@ var fibo = function ()
 	{
 		document.getElementById('result_field').value = 1;
 	}
-	if (fb_ne > 2)
+	if (fb_ne > 2) //Если заданный номер < 3, то выводим последовательность вручную, так как эти два значения являются задающими для последовательности. Если больше - используем для этого цикл.
 	{		
 		var fn_a = 0, fn_b = 1, fn_now; 
 		for (var i=3; i <= fb_ne; i++)
@@ -26,7 +26,7 @@ var fibo = function ()
 	}
 }
 
-var fibo_full = function ()
+var fibo_full = function () //Функция вывода всей последовательности
 {
 	var fb_ne = document.getElementById('num_element').value;
 	if (fb_ne < 1)
@@ -41,7 +41,7 @@ var fibo_full = function ()
 	{
 		document.getElementById('result_field').value = ("0 " + "1 ");
 	}
-	if (fb_ne > 2)
+	if (fb_ne > 2)//Если заданный номер < 3, то выводим последовательность вручную, так как эти два значения являются задающими для последовательности. Если больше - используем для этого цикл.
 	{		
 		var fn_a = 0, fn_b = 1, fn_now; 
 		document.getElementById('result_field').value = ("0 " + "1 ");
