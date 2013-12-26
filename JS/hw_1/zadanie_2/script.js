@@ -7,11 +7,11 @@ var fibo = function () // Функция вывода элемента посл�
 	}
 	if (fb_ne == 1)
 	{
-		document.getElementById('result_field').value = 0;
+		document.getElementById('result_field').value =("1-ый элемент:\r" + 0);
 	}
 	if (fb_ne == 2)
 	{
-		document.getElementById('result_field').value = 1;
+		document.getElementById('result_field').value = ("2-ый элемент:\r" + 1);
 	}
 	if (fb_ne > 2) //Если заданный номер < 3, то выводим последовательность вручную, так как эти два значения являются задающими для последовательности. Если больше - используем для этого цикл.
 	{		
@@ -22,7 +22,7 @@ var fibo = function () // Функция вывода элемента посл�
 			fn_a = fn_b;
 			fn_b = fn_now;
 		}
-		document.getElementById('result_field').value = ("n-ый элемент:\r" + fn_now);
+		document.getElementById('result_field').value = (fb_ne + "-ый элемент:\r" + fn_now);
 	}
 }
 

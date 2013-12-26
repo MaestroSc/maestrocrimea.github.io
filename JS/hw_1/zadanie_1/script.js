@@ -16,7 +16,7 @@ var fnelement = function ()
 			fn_now_el = fn_now_el * fn_q;// Вычисление порядкового члена прогрессии
 		}
 		document.getElementById('result_field').value += ("\r\rСумму арифметической прогрессии:\r" + fn_sum);
-		document.getElementById('result_field').value += ("\r\rN-ый элемент:\r" + fn_now_el / fn_q);
+		document.getElementById('result_field').value += ("\r\r"+ fn_ne +"-ый элемент:\r" + fn_now_el / fn_q);
 	}
 	else
 	{
