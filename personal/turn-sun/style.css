@@ -1,0 +1,36 @@
+body{
+	background-image: url(http://365psd.ru/images/backgrounds/bg-dark-0002.gif);
+}
+#main{
+	margin:40px auto;
+	width:660px;
+	height:448px;
+	border:4px solid black;
+	border-radius: 20px;
+	background: url(img/back_night.jpg);
+}
+
+#main2{
+	width:660px;
+	height:448px;
+	background: url(img/back.jpg);
+	border-radius: 20px;
+}
+
+#turn{
+	left: 40px;
+	border:4px solid black;
+	border-radius: 20px;
+	position:absolute;
+	height:140px;
+	width:120px;
+	/*background: url(img/turn.jpg) -9px -23px;*/
+	background: url(img/turn.jpg) -118px -23px;
+}
+
+.sun{
+	position: absolute;
+	background: url(img/sun.png);
+	width: 300px;
+	height: 167px;
+}
