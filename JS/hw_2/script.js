@@ -28,7 +28,6 @@ function turn2 (){
 
 function turn3 (){
 	document.getElementById('iSyllable').checked = true;
-	document.getElementById('input_date').value = 'Текст для проверки функции, разбивающей слово на слоги.';
 }
 
 function turn4 (){
