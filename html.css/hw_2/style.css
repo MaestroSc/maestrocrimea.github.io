@@ -2,12 +2,30 @@
 	float: right;
 }
 
-.l_img{
-	float: left;
+img[src="img/yandex.png"], img[src="img/chrome.png"], img[src="img/mozilla.png"], img[src="img/opera.png"], img[src="img/safari.png"], img[src="img/ie.png"]
+{
+	position: relative;
+	top:0px;
+}
+
+img{
+	position: relative;
+	top: -30px;
 }
 
 .icon_cont{
+	display: inline-block;
 	overflow: hidden;
 	width: 125px;
 	height: 125px;
+}
+
+.browserText{
+	position: relative;
+	top:-30px;
+	height: inherit;
+	width: inherit;
+	text-align: center;
+	display: table-cell;
+    vertical-align: middle;
 }
