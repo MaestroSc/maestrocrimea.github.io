@@ -1,0 +1,89 @@
+body{
+	background-image: url(img/bg.png);
+}
+
+.top{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 50px;
+	background-color: #1c1c1c;
+	padding: 5px 0px 0px 0px;
+	box-sizing: border-box;
+	letter-spacing: 3pt;
+	color: #EEE;
+	text-align: center;
+	font-size: 25pt;
+}
+
+.main{
+	width: 450px;
+	margin: 80px auto 0px;
+	padding: 20px 20px;
+	background-color: #F9F9F9;
+	border-radius: 3px;
+	box-shadow: 3px 4px 15px #787878;
+	font-family: calibri, cambria, arial;
+}
+
+input{
+	border: 1px solid #BABABA;
+	margin: 0px 5px;
+	background-color: #FDFDFD;
+}
+
+hr{
+	margin: 15px 0px 0px;
+}
+
+button{
+	cursor: pointer;
+}
+
+span{
+	color: #0000CD;
+}
+
+.lineOut{
+	display: block;
+	margin: 15px 5px 0px;
+	line-height: 20pt;
+}
+
+img{
+	width: 90px;
+	height: 90px;
+	float: right;
+}
+
+#outRepo{
+	display: block;
+	margin: 15px 5px 0px;
+	line-height: 20pt;
+}
+
+a, a:visited{
+	position: relative;
+	color:black;
+	text-decoration: none;
+	display: block;
+	margin: -1px;
+	border: 1px solid #E0E0E0;
+	padding-left: 10px;
+}
+
+a:hover{
+	text-decoration: underline;
+	background-color: #EAEEFF;
+	border-radius: 5px;
+	color: red;
+}
+
+.errorInfo{
+	margin: 15px 0px 0px;
+	font-family: monospace;
+	font-size: 14pt;
+	color: #1A38FF;
+	text-align: center;
+}
