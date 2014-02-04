@@ -12,6 +12,7 @@ function getXmlHttp(){
 		outLine = document.getElementsByClassName('lineOut'),
 		outRepo = document.getElementById('outRepo'),
 		outImg = document.getElementById('avatar'),
+		checkDate = new Date(),
 		clientData, i, strRepo;
 
 	function getMainData() { //функция парсит: имя, email, кол-во фолловеров и аватар, записывает в localStorage, и размещает на странице
