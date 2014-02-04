@@ -52,6 +52,7 @@ span{
 }
 
 img{
+	display: none;
 	width: 90px;
 	height: 90px;
 	float: right;
@@ -81,7 +82,7 @@ a:hover{
 }
 
 .errorInfo{
-	margin: 15px 0px 0px;
+	padding: 0px 30px 0px;
 	font-family: monospace;
 	font-size: 14pt;
 	color: #1A38FF;
