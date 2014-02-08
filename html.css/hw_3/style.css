@@ -1,0 +1,89 @@
+*{
+    padding: 0px;
+}
+
+body{
+    background: url(img/bg.png);
+}
+
+.main{
+    margin: 30px auto;
+    width:300px;
+    height: 200px;
+    border: 1px solid #ddd;
+    box-shadow: 1px 1px 8px #4A4A4A;
+    background: #fff;
+} 
+
+button{
+    margin: 20px 50px;
+    width: 80px;
+    height: 20px;
+    cursor: pointer;
+    outline-style: none;  
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    background-origin: padding-box, border-box;
+    background-clip: padding-box, border-box;
+    background-image: linear-gradient(to top, #e2e2e2 0%, #e2e2e2 30%, #f2f2f2 70%, #f2f2f2 100%),
+                      linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)); 
+        
+    font-size: 9pt;
+    font-family: Verdana, sans-serif;
+    color: #000;
+    text-shadow: 0px 0px 1px #737373;   
+    overflow: hidden;
+}
+
+button:focus{
+    box-shadow: 0px 0px 4px rgba(0, 35, 214, 0.95);
+    border: none;
+}
+
+button:hover{
+    background-image: linear-gradient(to top, #fdffcc 0%, #fdffcc 30%, #feffeb 70%, #feffeb 100%),
+                      linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+}
+
+button:active{
+
+    background-image: linear-gradient(to top, #e2e2e2 0%, #e2e2e2 30%, #f2f2f2 70%, #f2f2f2 100%),
+                      linear-gradient(to top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+    box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.26);
+}
+
+button:active > span{
+    position: relative;
+    top: 1px;
+}
+
+#progressBar{
+    margin: 30px auto 0px;
+    width: 210px;
+    height: 13px;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.29);
+    border-radius: 6px;
+    text-shadow: 0px 0px 1px #737373; 
+    font-family: Verdana, sans-serif;
+    font-size: 7pt;  
+    text-align: center;
+}
+
+#progressGo{
+    position: relative;
+    top: 0px;
+    left: 0px;
+    height: 13px;
+    width: 0px;
+    background: linear-gradient(to top, #28bf14 0%, #8bda1a 14%, #28bf14 49%, #abff58 100%);
+    border-radius: 6px;
+    transition: width 0.1s linear;
+}
+
+#percentBar{
+    position: relative;
+    top: -12px;
+}
