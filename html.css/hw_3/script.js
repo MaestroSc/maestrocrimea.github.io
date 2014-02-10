@@ -1,35 +1,41 @@
 document.getElementById('button').addEventListener('click', StartPBar, true);
 
 function StartPBar(){
-    var ProBar = document.getElementById('progressGo'),
-        inDate = document.getElementById('inputPercent').value,
-        tempDateStr = document.getElementById('percentBar'),
-        tempDate = tempDateStr.innerHTML.replace(/%/, ''),      
-        max;
+    var ProBar = document.getElementById('progressGo'), //Зелёная полоса загрузки
+        inPercent = document.getElementById('inputPercent'), //Инпут с значением процентов
+        inDate = inPercent.value, //Значение инпута с процентами
+        barPercentElem = document.getElementById('percentBar'), //элемент процентов на прогресс баре
+        barPercentDate = barPercentElem.innerHTML.replace(/%/, ''), //Получение значения процентов с прогресс бара
+        timeDuration, changeWidth;
+
     if (inDate > 100){
-        document.getElementById('inputPercent').value='100';
+        inPercent.value='100';
         inDate = 100;
     }
     if (inDate < 0){
-        document.getElementById('inputPercent').value='0';
+        inPercent.value='0';
         inDate = 0;
     }
 
-        function MyResult(sign){
-            if (sign == -1){tempDate--} 
-                      else {tempDate++}
+        function MyResult(sign){ //Функция изменения числа процентов загрузки
+            if (sign == -1){barPercentDate--} 
+                      else {barPercentDate++}
 
-            max = tempDate * 210 / 100; //Расчёт изменения колличества пикселей progress bar за 1 шаг
-            ProBar.style.width = max+'px';
-            tempDateStr.innerHTML = tempDate+'%';
-            if (tempDate != inDate){return setTimeout(function(){MyResult(sign)}, 100)};
+            barPercentElem.innerHTML = barPercentDate+'%';
+            if (barPercentDate != inDate){return setTimeout(function(){MyResult(sign)}, 50)};
             return true;
         }
 
-    if (parseInt(inDate) > parseInt(tempDate)){
+    timeDuration = Math.abs(inDate - barPercentDate) * 0.05; //Время выполнения анимации
+    ProBar.style.transitionDuration = timeDuration+'s';
+
+    changeWidth = inDate * 210 / 100;   //Конечное изменение ширины полосы загрузки
+    ProBar.style.width = changeWidth+'px';
+
+    if (parseInt(inDate) > parseInt(barPercentDate)){
         MyResult(1);
     } else {
-        if (inDate < tempDate){
+        if (inDate < barPercentDate){
             MyResult(-1);
         }
     }
