@@ -26,7 +26,7 @@ function StartPBar(){
             return true;
         }
 
-    timeDuration = Math.abs(inDate - barPercentDate) * 0.05; //Время выполнения анимации
+    timeDuration = Math.abs(inDate - barPercentDate) * 0.05; //Время выполнения анимации*/
     ProBar.style.transitionDuration = timeDuration+'s';
 
     changeWidth = inDate * 210 / 100;   //Конечное изменение ширины полосы загрузки

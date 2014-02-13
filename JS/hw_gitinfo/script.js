@@ -9,13 +9,15 @@ document.body.getElementsByTagName('input')[0].addEventListener('keydown', funct
 function getXmlHttp(){
 	var inLogin = document.getElementsByTagName('input')[0].value,
 		outData = document.getElementById('outInfo'),
-		outLine = document.getElementsByClassName('lineOut'),
+		outName = document.getElementsByClassName('lineName')[0],
+		outEmail = document.getElementsByClassName('lineEmail')[0],
+		outFollow = document.getElementsByClassName('lineFollow')[0],
 		outRepo = document.getElementById('outRepo'),
 		outImg = document.getElementById('avatar'),
-		checkDate = new Date(),
-		clientData, i, strRepo;
+		clientData, i, strRepo,
+		userInfo = {};
 
-	function getMainData() { //функция парсит: имя, email, кол-во фолловеров и аватар, записывает в localStorage, и размещает на странице
+	function getMainData() { //функция парсит данные
 		var xhr = new XMLHttpRequest();
 
 		xhr.open('GET', 'https://api.github.com/users/'+inLogin);
@@ -25,85 +27,101 @@ function getXmlHttp(){
 	    	
 	    	clientData = JSON.parse(xhr.responseText);
 
-	    	if (clientData.message != undefined){ //Проверка страницы на существование
+	    	if (this.status == 404){ //Проверка страницы на существование
 	    		outRepo.innerHTML = '<span class="errorInfo">Такого пользователя не существует</span>';
 	    		outData.style.display = 'none';
-	    		localStorage.setItem(inLogin, false); //Проверка на существование страницы
+	    		userInfo.loginStatus = false;
 	    	} else{
-	    		localStorage.setItem(inLogin, true);
+	    		// Статус существования пользователя
+	    		userInfo.loginStatus = true;
 	    		outData.style.display = 'block';
 	    		outImg.style.display = 'block';
 
-	    		localStorage.setItem(inLogin+'Img', clientData.avatar_url);
-	    		outImg.src = clientData.avatar_url;
+	    		// Получения url аватара пользователя
+	    		userInfo.avatar = outImg.src = clientData.avatar_url;
 
-	    		localStorage.setItem(inLogin+'Name', clientData.name);
-	    		outLine[0].innerHTML = '<span>Имя: </span>' + clientData.name;
+	    		// Получение имени пользователя
+	    		userInfo.name = clientData.name;
+	    		outName.innerHTML = '<span>Имя: </span>' + userInfo.name;
 
+	    		// Получение Email пользователя
 	    		if ((clientData.email == null) || (clientData.email == '')){
-	    			localStorage.setItem(inLogin+'Email', 'нет информации');
-	   	 			outLine[1].innerHTML = '<span>Email:</span> нет информации';
+	    			userInfo.email = 'нет информации';
+	   	 			outEmail.innerHTML = '<span>Email:</span> нет информации';
 	   			} else {
-	   	 			outLine[1].innerHTML = '<span>Email: </span>' + clientData.email;
-	   	 			localStorage.setItem(inLogin+'Email', clientData.email);
+	   				userInfo.email = clientData.email;
+	   	 			outEmail.innerHTML = '<span>Email: </span>' + userInfo.email;
 	   			}
 
-	 			localStorage.setItem(inLogin+'Foll', clientData.followers);
-	    		outLine[2].innerHTML = '<span>Фолловеров: </span>'+clientData.followers + '<hr>';
+	   			// Получение кол-ва фолловеров пользователя
+	   			userInfo.followers = clientData.followers;
+	    		outFollow.innerHTML = '<span>Фолловеров: </span>'+userInfo.followers + '<hr>';
 
-	    	}
+				// Время кэширования данных
+				userInfo.createTime = new Date();
+
+	    		if (this.status == 200) {
+           			// Получение публичных репозиториев
+	    			getRepoData();
+       			}
+	    	}	    	
 		};
 
 		xhr.send();
 	}
 
-	function getRepoData() { //Функция парсит публичные репозитории
-		var xhr = new XMLHttpRequest();
+	function getRepoData() {
+		var xhrIn = new XMLHttpRequest(),
+			urlRepo;
 
-		xhr.open('GET', 'https://api.github.com/users/'+inLogin+'/repos');
+		xhrIn.open('GET', 'https://api.github.com/users/'+inLogin+'/repos');
 
-		xhr.onreadystatechange = function() {
-    		if (xhr.readyState != 4) return;
+		xhrIn.onreadystatechange = function() {
+	    	if (xhrIn.readyState != 4) return;
 
-	    	clientData = JSON.parse(xhr.responseText);
+		    clientRepo = JSON.parse(xhrIn.responseText);
 
-	    	if (clientData.message == undefined){
-	    		outRepo.innerHTML = '<span>Репозитории: </span><br>';
-	    		
-	    		strRepo = '';
-	    		clientData.forEach(function(elem, i){
-	    			outRepo.innerHTML += '<a href="'+clientData[i].html_url+'">'+ clientData[i].name + '</a>';
-	    			strRepo += '<a href="'+clientData[i].html_url+'">'+ clientData[i].name + '</a>';
-	    		});
-	   		}
-	   		localStorage.setItem(inLogin+'Repo', strRepo);
-	   		localStorage.setItem(inLogin+'Date', checkDate);
-		};
+		    outRepo.innerHTML = '<span>Репозитории: </span><br>';
+		    		
+		    userInfo.repo = '';
 
-		xhr.send();
+		    clientRepo.forEach(function(elem, i){
+		    	urlRepo = '<a href="'+clientRepo[i].html_url+'">'+clientRepo[i].name+'</a>';
+		    	outRepo.innerHTML += urlRepo;
+		    	userInfo.repo += urlRepo;
+		    });
+		    
+		    if (this.status == 200) {
+           		localStorage[inLogin] = JSON.stringify(userInfo);
+       		}	    
+		}
+
+		xhrIn.send();
+
 	}
+
+	if (localStorage[inLogin]) userInfo = JSON.parse(localStorage[inLogin]);
 
 	//Проверка на кэш результата, и если они есть, на их актуальность (не прошли ли сутки с момента их создания)
-	if ((localStorage.getItem(inLogin) == null) || (new Date() - new Date(localStorage.getItem(inLogin+'Date')) > 86400000)){
-		getMainData();
-		getRepoData();
+	if ((!userInfo.name) || (new Date() - new Date(userInfo.createTime) > 86400000)){
+		getMainData(); // Функция парсинга данных пользователя
 	} else {
-		if (localStorage.getItem(inLogin) == 'false'){
+		if (userInfo.loginStatus == false){
 			outRepo.innerHTML = '<span class="errorInfo">Такого пользователя не существует</span>';
 	    	outData.style.display = 'none';
 		} else {
 			outData.style.display = 'block';
 	    	outImg.style.display = 'block';
 
-	    	outImg.src = localStorage.getItem(inLogin+'Img');
+	    	outImg.src = userInfo.avatar;
 
-	    	outLine[0].innerHTML = '<span>Имя: </span>' + localStorage.getItem(inLogin+'Name');
+	    	outName.innerHTML = '<span>Имя: </span>' + userInfo.name;
 
-	    	outLine[1].innerHTML = '<span>Email: </span>'+localStorage.getItem(inLogin+'Email');
+	    	outEmail.innerHTML = '<span>Email: </span>'+ userInfo.email;
 
-	    	outLine[2].innerHTML = '<span>Фолловеров: </span>'+localStorage.getItem(inLogin+'Foll') + '<hr>';
-	    	outRepo.innerHTML = '<span>Репозитории: </span><br>'+localStorage.getItem(inLogin+'Repo');
+	    	outFollow.innerHTML = '<span>Фолловеров: </span>'+userInfo.followers + '<hr>';
+
+	    	outRepo.innerHTML = '<span>Репозитории: </span><br>'+userInfo.repo;
 		}
-	}
-	
+	}	
 }
