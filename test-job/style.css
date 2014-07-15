@@ -1,0 +1,43 @@
+body{
+    background: #FDFBED;
+}
+
+h1{
+    max-width: 980px;
+    margin: 10px auto;
+    color: #035859;
+    font-family: Calibri Light, Calibri, serif;
+    font-weight: normal;
+    box-sizing: border-box;
+    padding-left: 30px;   
+}
+
+.content{
+    max-width: 980px;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: #FEFEFE;
+    border-radius: 8px;
+    border: 1px solid #EBEBEB;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .3);
+    overflow: hidden;
+}
+
+.main-img{
+    margin: 20px 20px 10px 10px;
+    min-width: 350px;
+    height: 230px;
+    background-image: url(img/luxe-comfort.jpg);
+    background-position: center;
+    border-radius: 10px;
+}
+
+.text-info{
+    margin: 20px 20px 10px 10px;
+    width: 100px;
+    flex-grow: 2;
+    text-align: justify;
+}
