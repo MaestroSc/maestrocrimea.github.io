@@ -1,11 +1,22 @@
 h1{
-    font-size: 14pt;
-    padding-left: 5pt;   
+    font-size: 17pt;
+    padding-left: 5pt;
+    text-align: center; 
+}
+
+h1 span{
+    font-size: 20pt;
 }
 
 h2{
     padding-left: 10px;
     font-size: 12pt;
+    text-align: left;
+}
+
+ul{
+    text-align: left;
+    margin-left: -30px;
 }
 
 .content{

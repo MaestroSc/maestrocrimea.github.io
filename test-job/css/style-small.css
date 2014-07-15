@@ -1,11 +1,18 @@
 h1{
     font-size: 10pt;
-    padding-left: 5pt;   
+    padding-left: 0pt;  
+    margin: auto; 
+    text-align: center; 
+}
+
+h1 span{
+    font-size: 12pt;
 }
 
 h2{
     padding-left: 5px;
     font-size: 11pt;
+    text-align: left;
 }
 
 li{
@@ -13,7 +20,8 @@ li{
 }
 
 ul{
-    margin-left: -25px;
+    margin-left: -35px;
+    text-align: left;
 }
 
 
@@ -36,6 +44,7 @@ ul{
 
 .text-info{
     font-size: 7pt;
+    text-align: left;
 }
 
 .text-info ul{
