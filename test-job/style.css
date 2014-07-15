@@ -15,10 +15,30 @@ h1{
 .content{
     max-width: 980px;
     margin: 10px auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+
+    -webkit-flex-direction: row;
+    -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
     flex-direction: row;
+
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -webkit-justify-content: space-around;
     justify-content: space-around;
+
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
+
     background: #FEFEFE;
     border-radius: 8px;
     border: 1px solid #EBEBEB;
@@ -38,6 +58,12 @@ h1{
 .text-info{
     margin: 20px 20px 10px 10px;
     width: 100px;
-    flex-grow: 2;
+
+    -webkit-flex-grow: 2;
+    -moz-flex-grow: 2
+    -ms-flex-grow: 2
+    -webkit-flex-grow: 2
+    flex-grow: 2
+
     text-align: justify;
 }
