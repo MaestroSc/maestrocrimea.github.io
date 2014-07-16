@@ -161,3 +161,28 @@ ul{
 .gallery-nav-right{
     background: url('../img/nav-right.jpg');
 }
+
+.gallery-change-photo{
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    margin-top: 8px;
+    color: #8083A8;
+    opacity: .1;
+    transition: .3s;
+}
+
+.gallery-change-photo:hover{
+    opacity: .9;
+}
+
+.gallery-next-photo{
+    left: 50%;
+    text-align: right;
+    /*background: yellow;*/
+}
+
+.gallery-prev-photo{
+    /*background: red;*/
+    padding-left: 10px;
+}
