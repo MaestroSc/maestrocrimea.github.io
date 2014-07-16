@@ -86,6 +86,7 @@ window.onload = function() {
     temp = temp.replace('url(','').replace(')','');
     temp = temp.replace('"','').replace("'","");
     galleryShow.src = temp.substr(0, temp.indexOf('.jpg') + 4);
+    alert(galleryShow.src);
     galleryShow.onload = function(){
       changeButtonNav(galleryShow.height)
     };
