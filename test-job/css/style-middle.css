@@ -43,3 +43,12 @@ ul{
 .text-info ul{
     line-height: 15pt;
 }
+
+.gallery-show-window-img{
+    max-height: 350px;
+}
+
+.gallery-show-window{
+    margin: 10px 2%;
+    width: 96%;
+}

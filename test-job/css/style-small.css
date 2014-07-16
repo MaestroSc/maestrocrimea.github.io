@@ -54,3 +54,12 @@ ul{
 .main-info{
     line-height: 12pt;
 }
+
+.gallery-show-window-img{
+    max-height: 200px;
+}
+
+.gallery-show-window{
+    margin: 10px 2%;
+    width: 96%;
+}

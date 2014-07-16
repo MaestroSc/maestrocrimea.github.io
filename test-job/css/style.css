@@ -88,24 +88,31 @@ ul{
 }
 
 .gallery{
-    margin: 1%;
+    margin: 10px 1% 10px;
     width: 98%;
-    height: 500px;
-    background: black;
+    background: #EBEBEB;
+    border-radius: 8px 8px 0 0;
     overflow: hidden;
 }
 
 .gallery-show-window{
-    margin: auto;
+    margin: 10px auto 0;
     width: 80%;
-    height: 402px;
+    text-align: center;
+}
+
+.gallery-show-window-img{
+    border: 1px solid gray;
+    margin-left: -1px;
+    max-width: 100%;
+    max-height: 600px;
+    transition: .2s;
 }
 
 .gallery-list-main{
     height: 100px;
-    margin-left: 30px;
+    margin: 3px 0 0 30px;
     display: inline-block;
-    background: yellow;
     position: relative;
     left: 0;
 }
@@ -120,12 +127,31 @@ ul{
     background-size: contain;
 }
 
+.gallery-list-item:hover{
+    outline: 2px solid #269252;
+    cursor: pointer;
+}
+
+.gallery-list-item:active{
+    outline: 2px groove #306937;
+}
+
+.gallery-list{
+    height: 108px;
+    width: 100%;
+    background: #EBEBEB;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+
 .gallery-nav{
-    height: 100px;
+    height: 108px;
     width: 30px;
     position: absolute;
     cursor: pointer;
     z-index: 10;
+    outline: none;
+    border-radius: 2px;
 }
 
 .gallery-nav-left{
