@@ -82,7 +82,11 @@ window.onload = function() {
 
 
   function listSelectImg(parentDiv){ // Вывод миниатюры в окно
-    galleryShow.src = parentDiv.style.backgroundImage.substring(4, parentDiv.style.backgroundImage.length - 1);
+    var temp = parentDiv.style.backgroundImage;
+    temp = temp.replace('url(','').replace(')','');
+    temp = temp.replace('"','').replace("'","");
+    galleryShow.src = temp.substr(0, temp.indexOf('.jpg') + 4);
+    alert(galleryShow.src);
     galleryShow.onload = function(){
       changeButtonNav(galleryShow.height)
     };
