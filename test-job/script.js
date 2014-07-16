@@ -1,11 +1,3 @@
-document.body.addEventListener('click', function(event) {
-    if (event.target.className.search('gallery-list-item') != -1) listSelectImg(event.target);
-  });
-
-function listSelectImg(parentDiv){ // Вывод миниатюры в окно
-    alert('test');
-  }
-
 window.onload = function() {
 
   var imgList = document.getElementsByClassName('gallery-list-main')[0], // Блок списка миниатюр
