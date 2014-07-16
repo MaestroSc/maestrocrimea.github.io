@@ -116,7 +116,6 @@ ul{
     display: inline-block;
     position: relative;
     left: 0;
-    z-index: 15;
 }
 
 .gallery-list-item{
@@ -127,7 +126,6 @@ ul{
     background-position: center;
     margin: 1px 2px;
     background-size: contain;
-    z-index: 20;
 }
 
 .gallery-list-item:hover{
@@ -145,7 +143,6 @@ ul{
     background: #EBEBEB;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
-    z-index: 14;
 }
 
 .gallery-nav{
@@ -163,7 +160,6 @@ ul{
 }
 
 .gallery-nav-right{
-    z-index: 21;
     background: url('../img/nav-right.jpg');
 }
 
