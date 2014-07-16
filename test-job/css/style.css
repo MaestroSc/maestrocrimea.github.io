@@ -164,7 +164,6 @@ ul{
 }
 
 .gallery-change-photo{
-    display: block;
     position: absolute;
     cursor: pointer;
     margin-top: 8px;
