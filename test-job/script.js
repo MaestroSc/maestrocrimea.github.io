@@ -3,13 +3,7 @@ document.body.addEventListener('click', function(event) {
   });
 
 function listSelectImg(parentDiv){ // Вывод миниатюры в окно
-    var temp = parentDiv.style.backgroundImage;
-    temp = temp.replace('url(','').replace(')','');
-    temp = temp.replace('"','').replace("'","");
-    galleryShow.src = temp.substr(0, temp.indexOf('.jpg') + 4);
-    galleryShow.onload = function(){
-      changeButtonNav(galleryShow.height)
-    };
+    alert('test');
   }
 
 window.onload = function() {
