@@ -13,27 +13,27 @@ window.onload = function() {
   document.body.addEventListener('click', function(event) {
     if (event.target.className.search('gallery-nav-right') != -1) galleryLeftScroll();
     if (event.target.className.search('gallery-nav-left') != -1) galleryRightScroll();
-    if (event.target.className.search('gallery-list-item') != -1) listSelectImg(event.target);
+    if (event.target.className.search('gallery-list-item') != -1) alert('test');/*listSelectImg(event.target)*/;
     if (event.target.className.search('gallery-next-photo') != -1) changePhoto(true);
     if (event.target.className.search('gallery-prev-photo') != -1) changePhoto(false);
-  }, false);
+  });
 
   galleryRightNav.style.marginLeft = widthGallery.clientWidth - 30 + "px"; //правая стрелка списка миниатюр
 
 
   window.addEventListener('resize', function(){
     galleryRightNav.style.marginLeft = widthGallery.clientWidth - 30 + "px";
-    // changeButtonNav(galleryShow.clientHeight);
+    changeButtonNav(galleryShow.clientHeight);
   });
 
   imgList.style.transition = '.3s';
   loadImageList(countImage);
  
-  // function changeButtonNav(hDiv){ // Размещение невидимых кнопок перелистывания фото
-  //   leftGalleryPhoto.style.width = rightGalleryPhoto.style.width = widthGallery.clientWidth / 2 - 10 + "px";
-  //   leftGalleryPhoto.style.height = hDiv + 4 + "px";
-  //   rightGalleryPhoto.style.height = hDiv + 4 + "px";
-  // }
+  function changeButtonNav(hDiv){ // Размещение невидимых кнопок перелистывания фото
+     leftGalleryPhoto.style.width = rightGalleryPhoto.style.width = widthGallery.clientWidth / 2 - 10 + "px";
+     leftGalleryPhoto.style.height = hDiv + 4 + "px";
+     rightGalleryPhoto.style.height = hDiv + 4 + "px";
+  }
 
   function galleryLeftScroll(){ // Скролл миниатют влево
     var sizeImgLine = 104 * (countImage - 1) + 8 - (imgList.style.left).replace(/px/, '')*(-1);
@@ -71,7 +71,7 @@ window.onload = function() {
       if (countImage == 1)
       { 
         galleryShow.src = 'img/photo1.jpg';
-        // changeButtonNav(newImg.height);
+        changeButtonNav(newImg.height);
       }
       imgList.innerHTML += '<div class="gallery-list-item" style="background: url(img/photo' + countImage + '.jpg); background-size: cover; background-position: center;" width="100px">';
       imgList.style.width = countImage * 102 + 30 + "px";
@@ -87,7 +87,7 @@ window.onload = function() {
     temp = temp.replace('"','').replace("'","");
     galleryShow.src = temp.substr(0, temp.indexOf('.jpg') + 4);
     galleryShow.onload = function(){
-      // changeButtonNav(galleryShow.height)
+      changeButtonNav(galleryShow.height)
     };
   } 
 
@@ -111,7 +111,7 @@ window.onload = function() {
       if (thisNumber > 0) galleryShow.src= 'img/photo' + thisNumber + '.jpg';
     }
     galleryShow.onload = function(){
-      // changeButtonNav(galleryShow.height);
+      changeButtonNav(galleryShow.height);
     }
   }
 
