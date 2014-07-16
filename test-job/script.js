@@ -13,7 +13,7 @@ window.onload = function() {
   document.body.addEventListener('click', function(event) {
     if (event.target.className.search('gallery-nav-right') != -1) galleryLeftScroll();
     if (event.target.className.search('gallery-nav-left') != -1) galleryRightScroll();
-    if (event.target.className.search('gallery-list-item') != -1) listSelectImg(/*event.target*/);
+    if (event.target.className.search('gallery-list-item') != -1) listSelectImg(event.target);
     if (event.target.className.search('gallery-next-photo') != -1) changePhoto(true);
     if (event.target.className.search('gallery-prev-photo') != -1) changePhoto(false);
   });
@@ -29,11 +29,11 @@ window.onload = function() {
   imgList.style.transition = '.3s';
   loadImageList(countImage);
  
-  function changeButtonNav(hDiv){ // Размещение невидимых кнопок перелистывания фото
+  /*function changeButtonNav(hDiv){ // Размещение невидимых кнопок перелистывания фото
     leftGalleryPhoto.style.width = rightGalleryPhoto.style.width = widthGallery.clientWidth / 2 - 10 + "px";
     leftGalleryPhoto.style.height = hDiv + 4 + "px";
     rightGalleryPhoto.style.height = hDiv + 4 + "px";
-  }
+  }*/
 
   function galleryLeftScroll(){ // Скролл миниатют влево
     var sizeImgLine = 104 * (countImage - 1) + 8 - (imgList.style.left).replace(/px/, '')*(-1);
@@ -82,14 +82,13 @@ window.onload = function() {
 
 
   function listSelectImg(parentDiv){ // Вывод миниатюры в окно
-    alert('test');
-    /*var temp = parentDiv.style.backgroundImage;
+    var temp = parentDiv.style.backgroundImage;
     temp = temp.replace('url(','').replace(')','');
     temp = temp.replace('"','').replace("'","");
     galleryShow.src = temp.substr(0, temp.indexOf('.jpg') + 4);
     galleryShow.onload = function(){
       changeButtonNav(galleryShow.height)
-    };*/
+    };
   } 
 
   function changePhoto(bool){ // Перелистывание фото с окна обозревателя
