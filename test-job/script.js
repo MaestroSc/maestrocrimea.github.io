@@ -16,7 +16,7 @@ window.onload = function() {
     if (event.target.className.search('gallery-list-item') != -1) listSelectImg(event.target);
     if (event.target.className.search('gallery-next-photo') != -1) changePhoto(true);
     if (event.target.className.search('gallery-prev-photo') != -1) changePhoto(false);
-  }, true);
+  }, false);
 
   galleryRightNav.style.marginLeft = widthGallery.clientWidth - 30 + "px"; //правая стрелка списка миниатюр
 
